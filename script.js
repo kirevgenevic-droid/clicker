@@ -25,6 +25,8 @@ upBtn.onclick = function() {
         cost *= 2;
         upBtn.innerText = "Upgrade (" + cost + ")";
         balance.innerText = total
+    }else{
+        alert("Not enough money for upgrade!");
     }
 }
 
@@ -35,10 +37,12 @@ autoBtn.onclick = function() {
         autoCost *= 2;
         autoBtn.innerText = "Auto (" + autoCost + ")";
         balance.innerText = total
+    }else{
+        alert("Not enough money for auto clicker!");
     }
 }
 
 setInterval(function() {
     total += auto;
     balance.innerText = total;
-}, 1000);
+}, 1000);   
