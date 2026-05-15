@@ -1,21 +1,25 @@
-let total = 0;
+let total = 10000;
 let bonus = 1;
 let cost = 20;
 let auto = 0;
-let autoCost = 50;
+let autoCost = 30;
+let level = 1;
+let levelCost = 100;
 
 const balance = document.getElementById("balance");
 const clickBtn = document.getElementById("click");
 const upBtn = document.getElementById("upgrade");
 const autoBtn = document.getElementById("auto");
+const levelBtn = document.getElementById("level");
+const levelImage = document.getElementById("image");
 
-balance.innerText = total;
+balance.innerText = total + " ( level " + level + ")";;
 upBtn.innerText = "Upgrade (" + cost + ")";
 autoBtn.innerText = "Auto (" + autoCost + ")";
 
 clickBtn.onclick = function() {
-    total += bonus;
-    balance.innerText = total;
+    total += bonus ;
+    balance.innerText = total + " ( level " + level + ")";
 }
 
 upBtn.onclick = function() {
@@ -24,7 +28,7 @@ upBtn.onclick = function() {
         bonus++;
         cost *= 2;
         upBtn.innerText = "Upgrade (" + cost + ")";
-        balance.innerText = total
+        balance.innerText = total + " ( level " + level + ")";
     }else{
         alert("Not enough money for upgrade!");
     }
@@ -36,13 +40,29 @@ autoBtn.onclick = function() {
         auto++;
         autoCost *= 2;
         autoBtn.innerText = "Auto (" + autoCost + ")";
-        balance.innerText = total
+        balance.innerText = total + " ( level " + level + ")";
     }else{
         alert("Not enough money for auto clicker!");
     }
 }
+levelBtn.addEventListener("click", function() {
+    if (total >= levelCost) {
+        total -= levelCost;
+        level++;
+        levelCost *= 2;
+        levelBtn.innerText = "Level Up (" + levelCost + ")";
+        balance.innerText = total + " ( level " + level + ")";
+        levelImage.src = level + ".png";
+        if (level === 3){
+            alert("Congratulations! You won this game!");
+            level = 1;
+        }
+    } else {
+        alert("Not enough money to level up!");
+    }
+});
 
 setInterval(function() {
     total += auto;
-    balance.innerText = total;
+    balance.innerText = total + " ( level " + level + ")";
 }, 1000);   

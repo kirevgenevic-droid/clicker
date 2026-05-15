@@ -60,4 +60,18 @@ button {
     transform: scale(1.05);
 }
 
+#level{
+    background-color: red;
+    border-radius: 100%;
+    width: 75px;
+    height: 75px;
+    color: white;
+    margin-left: 45px;
+}
+#level:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+}
+
+
 
