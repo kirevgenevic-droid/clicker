@@ -53,9 +53,14 @@ levelBtn.addEventListener("click", function() {
         levelBtn.innerText = "Level Up (" + levelCost + ")";
         balance.innerText = total + " ( level " + level + ")";
         levelImage.src = level + ".png";
-        if (level === 3){
+        if (level === 3 ) {
+            setTimeout(function() {  
             alert("Congratulations! You won this game!");
-            level = 1;
+            },500)
+
+        }
+        else if (level >= 3) {
+            levelImage.src =   "3.png"
         }
     } else {
         alert("Not enough money to level up!");
